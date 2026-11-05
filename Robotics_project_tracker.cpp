@@ -24,7 +24,7 @@ int main()
     double hoursWorked;
     // Ask for the robot's name
     cout << "What is your robot's name? ";
-    cin >> robotName;
+    getline(cin, robotName);
 
     // Ask how many parts the robot has
     cout << "How many parts does your robot have? ";
