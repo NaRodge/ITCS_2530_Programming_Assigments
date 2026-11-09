@@ -30,13 +30,15 @@ int main()
     cout << "How many parts does your robot have? ";
     cin >> totalParts;
 
-    // Check the total parts input
-    if (cin.fail() || totalParts <= 0)
+    while (cin.fail() || totalParts <= 0)
     {
-        cout << "Invalid input. Enter a number greater than 0." << endl;
-        return 1;
-    }
+        cin.clear();
+        cin.ignore(1000, '\n');
 
+        cout << "Invalid input. Enter a number greater than 0: ";
+        cin >> totalParts;
+    }
+   
     // Ask how many parts are finished
     cout << "How many parts are finished? ";
     cin >> finishedParts;
@@ -65,6 +67,22 @@ int main()
 
     // calculate percentage of parts completed
     double percentageCompleted = finishedParts * 100.0 / totalParts;
+
+    // Display five robot building progress steps
+    cout << endl;
+    cout << "Robot Building Checklist" << endl;
+
+    for (int step = 1; step <= 5; step++)
+    {
+        cout << "Building step " << step << " of 5" << endl;
+    }
+
+    // Ask the user if they want to use the menu again
+    char repeatChoice;
+
+    do
+    {
+
 
     // Menu for the Robotics Progress Tracker
     int menuChoice;
@@ -129,6 +147,7 @@ int main()
     }
 
     // robots progress table 
+    cout << fixed << setprecision(1);
     cout << endl;
     cout << "Robot Progress Table" << endl;
     cout << "----------------------------------" << endl;
@@ -137,12 +156,11 @@ int main()
     cout << left << setw(24) << "Finished Parts" << finishedParts << endl;
     cout << left << setw(24) << "Parts Left" << partsLeft << endl;
     cout << left << setw(24) << "Hours Worked" << hoursWorked << endl;
-
-    cout << fixed << setprecision(1);
     cout << left << setw(24) << "Completion Percentage" << percentageCompleted << "%" << endl;
 
     // Robotics report file
     ofstream report("report.txt");
+    report << fixed << setprecision(1);
     report << "Robotics Build Tracker" << endl;
     report << "----------------------------------" << endl;
 
@@ -151,12 +169,17 @@ int main()
     report << left << setw(24) << "Finished Parts" << finishedParts << endl;
     report << left << setw(24) << "Parts Left" << partsLeft << endl;
     report << left << setw(24) << "Hours Worked" << hoursWorked << endl;
-
-    report << fixed << setprecision(1);
     report << left << setw(24) << "Completion Percentage"
         << percentageCompleted << "%" << endl;
 
     report.close();
     cout << "Your robot's progress has been saved." << endl;
+    cout << endl;
+    
+    cout << "Would you like to use the menu again? (y/n): ";
+    cin >> repeatChoice;
+
+    } while (repeatChoice == 'y' || repeatChoice == 'Y');
+
     return 0;
 }
