@@ -1,8 +1,14 @@
 Robotics Build Tracker
 ----------------------------------
-Robot Name              techno pheonix
+Robot Name              kris
 Total Parts             20
-Finished Parts          15
-Parts Left              5
-Hours Worked            3.0
-Completion Percentage   75.0%
+Finished Parts          20
+Parts Left              0
+Hours Worked            30.0
+Completion Percentage   100.0%
+Day 1 Progress: 30%
+Day 2 Progress: 20%
+Day 3 Progress: 10%
+Day 4 Progress: 50%
+Day 5 Progress: 40%
+Average Daily Progress: 30.0%
